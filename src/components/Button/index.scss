@@ -1,0 +1,9 @@
+$block: "btn";
+
+.#{$block} {
+  @apply flex justify-center items-center rounded-full w-[120px] h-[48px] font-bold text-secondary opacity-[0.4];
+
+  &--primary {
+    @apply bg-red-400 text-primary opacity-100;
+  }
+}

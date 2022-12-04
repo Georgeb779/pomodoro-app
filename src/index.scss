@@ -2,4 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+$block: "app_container";
+$block_2: "choice_container";
 
+body {
+  -webkit-text-size-adjust: 100%;
+}
+
+.#{$block} {
+  @apply bg-body h-screen text-white flex flex-col justify-center items-center;
+
+  > h1 {
+    @apply text-3xl font-bold mb-14;
+  }
+}
+
+.#{$block_2} {
+  @apply flex justify-center items-center rounded-full bg-primary w-[353px] h-[63px]  gap-2 p-2;
+  transition: all 0.3s ease-in-out;
+}
