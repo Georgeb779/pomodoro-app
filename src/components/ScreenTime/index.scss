@@ -1,0 +1,31 @@
+$block: "screen-time";
+
+.#{$block} {
+  &__container {
+    @apply flex flex-col justify-center items-center rounded-full w-[410px] h-[410px] mt-[45px];
+    background: linear-gradient(315deg, #2e325a 0%, #0e112a 100%);
+    box-shadow: -50px -50px 100px #272c5a, 50px 50px 100px #121530;
+    cursor: default;
+  }
+
+  &-value__container {
+    @apply flex flex-col justify-center items-center w-[366px] h-[366px] rounded-full;
+    background: #161932;
+  }
+  &-timer__container {
+    @apply flex flex-col justify-center items-center  w-[339px] h-[339px] rounded-full;
+    border: solid 13px #f87070;
+
+    &--value {
+      @apply flex flex-col justify-center items-center font-bold text-8xl text-secondary;
+      letter-spacing: -5px;
+    }
+    &--btn {
+      @apply mt-6;
+
+      > button {
+        @apply text-base text-secondary tracking-[15px] leading-[20px] font-bold;
+      }
+    }
+  }
+}

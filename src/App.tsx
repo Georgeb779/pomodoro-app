@@ -1,9 +1,9 @@
 import { Button } from "@/components/Button";
+import { ScreenTime } from "@/components/ScreenTime";
 import { useState } from "react";
 import "./index.scss";
 
 function App() {
-
   const [active, setActive] = useState({
     btn1: true,
     btn2: false,
@@ -53,6 +53,10 @@ function App() {
             activeABtnDisableTheRest("btn3");
           }}
         />
+      </div>
+
+      <div className='timer_container'>
+        <ScreenTime />
       </div>
     </div>
   );
