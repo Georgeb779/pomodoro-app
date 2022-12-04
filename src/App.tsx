@@ -3,7 +3,6 @@ import { useState } from "react";
 import "./index.scss";
 
 function App() {
-  const [count, setCount] = useState([]);
 
   const [active, setActive] = useState({
     btn1: true,
@@ -24,7 +23,11 @@ function App() {
     <div className='app_container'>
       <h1>Pomodoro</h1>
 
-      <div className='choice_container'>
+      <div
+        className={`choice_container ${
+          active.btn1 ? "primary-1" : active.btn2 ? "primary-2" : "primary-3"
+        }`}
+      >
         <Button
           text='Pomodoro'
           color='red'

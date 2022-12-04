@@ -19,5 +19,27 @@ body {
 
 .#{$block_2} {
   @apply flex justify-center items-center rounded-full bg-primary w-[353px] h-[63px]  gap-2 p-2;
-  transition: all 0.3s ease-in-out;
+  //add before bg primary
+  &::before {
+    @apply rounded-full absolute bg-red-400  w-[110px] h-[48px];
+    content: "";
+    transition: all 0.3s ease-in-out;
+  }
+
+  &.primary-1 {
+    &::before {
+      @apply w-[104px];
+      transform: translate(-110%, 0px);
+    }
+  }
+  &.primary-2 {
+    &::before {
+      transform: translate(0%, 0px);
+    }
+  }
+  &.primary-3 {
+    &::before {
+      transform: translate(103%, 0px);
+    }
+  }
 }
