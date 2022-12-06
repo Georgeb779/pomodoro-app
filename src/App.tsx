@@ -1,6 +1,5 @@
-import { Button } from "@/components/Button";
-import { ScreenTime } from "@/components/ScreenTime";
 import { useState } from "react";
+import { Button, ScreenTime, Modal } from "@/components/";
 import "./index.scss";
 
 function App() {
@@ -57,6 +56,10 @@ function App() {
 
       <div className='timer_container'>
         <ScreenTime />
+      </div>
+
+      <div className='modal_container'>
+        <Modal />
       </div>
     </div>
   );

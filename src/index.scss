@@ -26,7 +26,7 @@ a {
 }
 
 .#{$block_2} {
-  @apply flex justify-center items-center rounded-full bg-primary w-[353px] h-[63px]  gap-2 p-2;
+  @apply flex justify-center items-center rounded-full bg-primary w-[327px] h-[63px]  gap-2 p-2;
   z-index: 1;
   &::before {
     @apply rounded-full absolute bg-red-400  w-[110px] h-[48px];
@@ -36,7 +36,7 @@ a {
 
   &.primary-1 {
     &::before {
-      @apply w-[104px];
+      @apply w-[98px];
       transform: translate(-110%, 0px);
     }
   }
@@ -47,7 +47,7 @@ a {
   }
   &.primary-3 {
     &::before {
-      @apply w-[105px];
+      @apply w-[98px];
       transform: translate(110%, 0px);
     }
   }
