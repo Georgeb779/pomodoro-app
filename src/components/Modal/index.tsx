@@ -1,7 +1,15 @@
-import React from 'react'
+import React from "react";
+import "./index.scss";
 
-export default function index() {
+export function Modal() {
   return (
-    <div>index</div>
-  )
+    <div className='modal__container'>
+      <div className='modal-item__container'>
+        <div className='modal-item__container--content'>
+          <h1>Hello peter</h1>
+        </div>
+        <button>Apply</button>
+      </div>
+    </div>
+  );
 }
