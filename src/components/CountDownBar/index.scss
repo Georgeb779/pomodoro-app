@@ -1,0 +1,22 @@
+.base-timer {
+  position: absolute;
+  height: 265px;
+  width: 265px;
+}
+.base-timer svg {
+  transform: rotate(-90deg);
+  transition: all 1s ease-in-out;
+}
+
+/* Removes SVG styling that would hide the time label */
+.base-timer__circle {
+  fill: none;
+  stroke: none;
+}
+
+/* The SVG path that displays the timer's progress */
+.base-timer__path-elapsed {
+  stroke-width: 3px;
+  stroke: #f87070;
+  stroke-linecap: round;
+}

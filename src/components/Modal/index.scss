@@ -1,13 +1,13 @@
-$block: "modal";
+// $block: "modal";
 
-.#{$block} {
-  &__container {
-    background-image: url("../../assets/images/gear-icon.svg");
-    @apply w-[27px] h-[27px] bg-no-repeat bg-[length:27px_27px] cursor-pointer mt-[63px];
-  }
-  &-item__container {
-    @apply flex flex-col items-center justify-center absolute top-[50%] left-[50%] w-[327px] h-[575px] bg-white rounded-xl;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-  }
-}
+// .#{$block} {
+//   &__container {
+//     background-image: url("../../assets/images/gear-icon.svg");
+//     @apply w-[27px] h-[27px] bg-no-repeat bg-[length:27px_27px] cursor-pointer mt-[63px];
+//   }
+//   &-item__container {
+//     @apply flex flex-col items-center justify-center absolute top-[50%] left-[50%] w-[327px] h-[575px] bg-white rounded-xl;
+//     transform: translate(-50%, -50%);
+//     z-index: 2;
+//   }
+// }

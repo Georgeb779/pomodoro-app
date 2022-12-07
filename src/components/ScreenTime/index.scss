@@ -14,7 +14,6 @@ $block: "screen-time";
   }
   &-timer__container {
     @apply flex flex-col justify-center items-center  w-[248px] h-[248px] rounded-full;
-    border: solid 8px #f87070;
 
     &--value {
       @apply flex flex-col justify-center items-center font-bold text-[80px] text-secondary;
