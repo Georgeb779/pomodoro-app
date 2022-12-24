@@ -1,13 +1,89 @@
-// $block: "modal";
+$block: "modal";
 
-// .#{$block} {
-//   &__container {
-//     background-image: url("../../assets/images/gear-icon.svg");
-//     @apply w-[27px] h-[27px] bg-no-repeat bg-[length:27px_27px] cursor-pointer mt-[63px];
-//   }
-//   &-item__container {
-//     @apply flex flex-col items-center justify-center absolute top-[50%] left-[50%] w-[327px] h-[575px] bg-white rounded-xl;
-//     transform: translate(-50%, -50%);
-//     z-index: 2;
-//   }
-// }
+.#{$block} {
+  &__container {
+    @apply bg-no-repeat bg-[length:27px_27px] mt-[63px];
+  }
+
+  &-item__container {
+    @apply flex visible h-full w-full opacity-100 items-center justify-center z-10	scale-100 fixed top-0 left-0;
+    transform: scale(1);
+    transition: all 0.3s ease-in-out;
+
+    &--content {
+      @apply rounded-xl bg-white text-center align-middle h-[575px] w-[327px];
+      transition: all 0.3s ease-in-out;
+
+      header {
+        @apply flex justify-between text-xl font-bold text-primary p-[24px];
+
+        .modal-item__container--content--close {
+          @apply cursor-pointer;
+        }
+      }
+    }
+
+    &--content--body {
+      @apply flex flex-col;
+
+      h2 {
+        @apply text-xs font-bold text-primary p-[24px] text-center uppercase;
+        letter-spacing: 4.23077px;
+      }
+
+      span {
+        @apply flex  mb-2 pl-6 pr-6 justify-between items-center;
+
+        label {
+          @apply font-bold text-primary opacity-40 text-xs;
+        }
+
+        input {
+          @apply mr-[8px] cursor-pointer w-[140px] h-[40px] text-left bg-custom-gray pl-4 text-primary text-sm font-bold;
+          border-radius: 10px;
+        }
+      }
+
+      .font__container {
+        @apply flex items-center justify-center gap-4;
+
+        .font_item {
+          @apply flex items-center justify-center w-10 h-10 rounded-full cursor-pointer bg-white text-primary;
+
+          &.active {
+            @apply bg-primary text-white;
+          }
+        }
+      }
+      .color__container {
+        @apply flex items-center justify-center gap-4;
+
+        div {
+          @apply flex items-center justify-center w-10 h-10 rounded-full cursor-pointer;
+          &:first-child {
+            @apply bg-white text-primary;
+            background: #f87070;
+          }
+          &:nth-child(2) {
+            @apply bg-white text-primary;
+            background: #70f3f8;
+          }
+          &:last-child {
+            @apply bg-white text-primary;
+            background: #d881f8;
+          }
+
+          &.active {
+            @apply bg-primary text-white;
+          }
+        }
+      }
+    }
+
+    &.disable {
+      @apply invisible opacity-0 bg-transparent;
+      transform: scale(0);
+      background: none;
+    }
+  }
+}
