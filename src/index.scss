@@ -7,6 +7,7 @@ $block_2: "choice_container";
 
 body {
   -webkit-text-size-adjust: 100%;
+  overflow: hidden;
 }
 
 input,
@@ -28,10 +29,11 @@ a {
 .#{$block_2} {
   @apply flex justify-center items-center rounded-full bg-primary w-[327px] h-[63px]  gap-2 p-2;
   z-index: 1;
+
   &::before {
     @apply rounded-full absolute bg-red-400  w-[110px] h-[48px];
     content: "";
-    transition: all 0.4s ease;
+    transition: all 0.3s ease-in-out;
   }
 
   &.primary-1 {

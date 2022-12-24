@@ -1,10 +1,14 @@
 $block: "btn";
 
 .#{$block} {
-  @apply flex justify-center items-center rounded-full w-[120px] h-[48px] font-bold text-secondary opacity-[0.4];
+  @apply flex justify-center items-center rounded-full  font-bold text-secondary opacity-[0.4];
 
-  &--primary {
-    @apply text-primary opacity-100;
+  &--disabled {
+    @apply w-[120px] h-[48px];
+  }
+  &--active {
+    @apply text-primary opacity-100 w-[120px] h-[48px];
+    transition: all 0.3s ease;
     z-index: 1;
   }
 }
