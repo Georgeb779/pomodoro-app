@@ -3,19 +3,22 @@ import { Button, ScreenTime, Modal } from "@/components/";
 import "./index.scss";
 
 function App() {
-  const [active, setActive] = useState({
+
+
+  const [activeBtn, setActiveBtn] = useState({
     btn1: true,
     btn2: false,
     btn3: false
   });
 
-  const activeABtnDisableTheRest = (btn: string) => {
-    setActive({
+  const animateActiveBtn = (btn: string) => {
+    setActiveBtn({
       btn1: false,
       btn2: false,
       btn3: false,
       [btn]: true
     });
+
   };
 
   return (
@@ -23,33 +26,32 @@ function App() {
       <h1>Pomodoro</h1>
 
       <div
-        className={`choice_container ${
-          active.btn1 ? "primary-1" : active.btn2 ? "primary-2" : "primary-3"
-        }`}
+        className={`choice_container ${activeBtn.btn1 ? "primary-1" : activeBtn.btn2 ? "primary-2" : "primary-3"
+          }`}
       >
         <Button
           text='Pomodoro'
           color='red'
-          type={active.btn1 ? "primary" : "disabled"}
+          type={activeBtn.btn1 ? "active" : "disabled"}
           onClick={() => {
-            activeABtnDisableTheRest("btn1");
+            animateActiveBtn("btn1");
           }}
         />
         <Button
           text='Short Break'
           color='green'
-          type={active.btn2 ? "primary" : "disabled"}
+          type={activeBtn.btn2 ? "active" : "disabled"}
           onClick={() => {
-            activeABtnDisableTheRest("btn2");
+            animateActiveBtn("btn2");
           }}
         />
 
         <Button
           text='Long Break'
           color='blue'
-          type={active.btn3 ? "primary" : "disabled"}
+          type={activeBtn.btn3 ? "active" : "disabled"}
           onClick={() => {
-            activeABtnDisableTheRest("btn3");
+            animateActiveBtn("btn3");
           }}
         />
       </div>
@@ -58,9 +60,7 @@ function App() {
         <ScreenTime />
       </div>
 
-      <div className='modal_container'>
-        <Modal />
-      </div>
+      <Modal />
     </div>
   );
 }

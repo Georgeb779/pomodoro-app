@@ -7,6 +7,7 @@ module.exports = {
         "body": "#1E213F",
         "primary": "#161932",
         "secondary": "#D7E0FF",
+        "custom-gray": "#EFF1FA",
       }
     }
   },
