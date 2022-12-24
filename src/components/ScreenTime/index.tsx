@@ -10,7 +10,7 @@ export function ScreenTime() {
           <CountDownBar />
           <div className='screen-time-timer__container--value'>17:59</div>
           <div className='screen-time-timer__container--btn'>
-            <button>PAUSE</button>
+            <button>START</button>
           </div>
         </div>
       </div>

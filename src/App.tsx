@@ -3,12 +3,26 @@ import { Button, ScreenTime, Modal } from "@/components/";
 import "./index.scss";
 
 function App() {
-
-
   const [activeBtn, setActiveBtn] = useState({
     btn1: true,
     btn2: false,
     btn3: false
+  });
+
+  const [useFont, setUseFont] = useState({
+    activeFont: "primary-font",
+    newFont: ""
+  });
+
+  const [useColor, setUseColor] = useState({
+    activeColor: "primary-color",
+    newColor: ""
+  });
+
+  const [pomodoroTimes, setPomodoroTimes] = useState({
+    pomodoro: 25,
+    shortBreak: 5,
+    longBreak: 15
   });
 
   const animateActiveBtn = (btn: string) => {
@@ -18,16 +32,21 @@ function App() {
       btn3: false,
       [btn]: true
     });
-
   };
 
   return (
-    <div className='app_container'>
+    <div
+      className={`app_container ${useColor.activeColor} ${useFont.activeFont}`}
+    >
       <h1>Pomodoro</h1>
-
       <div
-        className={`choice_container ${activeBtn.btn1 ? "primary-1" : activeBtn.btn2 ? "primary-2" : "primary-3"
-          }`}
+        className={`choice_container ${useColor.activeColor} ${
+          activeBtn.btn1
+            ? "primary-1"
+            : activeBtn.btn2
+            ? "primary-2"
+            : "primary-3"
+        }`}
       >
         <Button
           text='Pomodoro'
@@ -56,11 +75,17 @@ function App() {
         />
       </div>
 
-      <div className='timer_container'>
+      <div className={`timer_container ${useColor.activeColor}`}>
         <ScreenTime />
       </div>
 
-      <Modal />
+      <Modal
+        useColor={useColor}
+        useFont={useFont}
+        setUseFont={setUseFont}
+        setUseColor={setUseColor}
+        setPomodoroTimes={setPomodoroTimes}
+      />
     </div>
   );
 }

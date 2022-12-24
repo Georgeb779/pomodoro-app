@@ -15,8 +15,26 @@
 }
 
 /* The SVG path that displays the timer's progress */
+
 .base-timer__path-elapsed {
   stroke-width: 3px;
-  stroke: #f87070;
   stroke-linecap: round;
+}
+
+.primary-color {
+  .base-timer__path-elapsed {
+    stroke: #f87070;
+  }
+}
+
+.secondary-color {
+  .base-timer__path-elapsed {
+    stroke: #70f3f8;
+  }
+}
+
+.tertiary-color {
+  .base-timer__path-elapsed {
+    stroke: #d881f8;
+  }
 }

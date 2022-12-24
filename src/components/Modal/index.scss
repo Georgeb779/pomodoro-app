@@ -16,6 +16,7 @@ $block: "modal";
 
       header {
         @apply flex justify-between text-xl font-bold text-primary p-[24px];
+        border-bottom: 1px solid #e3e1e1;
 
         .modal-item__container--content--close {
           @apply cursor-pointer;
@@ -46,37 +47,9 @@ $block: "modal";
 
       .font__container {
         @apply flex items-center justify-center gap-4;
-
-        .font_item {
-          @apply flex items-center justify-center w-10 h-10 rounded-full cursor-pointer bg-white text-primary;
-
-          &.active {
-            @apply bg-primary text-white;
-          }
-        }
       }
       .color__container {
         @apply flex items-center justify-center gap-4;
-
-        div {
-          @apply flex items-center justify-center w-10 h-10 rounded-full cursor-pointer;
-          &:first-child {
-            @apply bg-white text-primary;
-            background: #f87070;
-          }
-          &:nth-child(2) {
-            @apply bg-white text-primary;
-            background: #70f3f8;
-          }
-          &:last-child {
-            @apply bg-white text-primary;
-            background: #d881f8;
-          }
-
-          &.active {
-            @apply bg-primary text-white;
-          }
-        }
       }
     }
 

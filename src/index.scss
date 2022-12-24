@@ -24,6 +24,17 @@ a {
   > h1 {
     @apply text-3xl font-bold mb-14;
   }
+
+  &.primary-font {
+    @apply font-sans;
+  }
+  &.secondary-font {
+    @apply font-serif;
+  }
+
+  &.tertiary-font {
+    @apply font-mono;
+  }
 }
 
 .#{$block_2} {
@@ -31,9 +42,25 @@ a {
   z-index: 1;
 
   &::before {
-    @apply rounded-full absolute bg-red-400  w-[110px] h-[48px];
+    @apply rounded-full absolute   w-[110px] h-[48px];
     content: "";
     transition: all 0.3s ease-in-out;
+  }
+
+  &.primary-color {
+    &::before {
+      @apply bg-red-400;
+    }
+  }
+  &.secondary-color {
+    &::before {
+      @apply bg-custom-blue;
+    }
+  }
+  &.tertiary-color {
+    &::before {
+      @apply bg-custom-pink;
+    }
   }
 
   &.primary-1 {
