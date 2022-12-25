@@ -33,7 +33,7 @@ $block: "modal";
       }
 
       span {
-        @apply flex  mb-2 pl-6 pr-6 justify-between items-center;
+        @apply flex  mb-2 justify-between items-center;
 
         label {
           @apply font-bold text-primary opacity-40 text-xs;
@@ -50,6 +50,23 @@ $block: "modal";
       }
       .color__container {
         @apply flex items-center justify-center gap-4;
+      }
+    }
+    &--content--section {
+      @apply ml-6 mr-6;
+
+      &:first-child {
+        border-bottom: 1px solid #e3e1e1;
+        padding-bottom: 24px;
+      }
+      &:nth-child(2) {
+        border-bottom: 1px solid #e3e1e1;
+        padding-bottom: 24px;
+      }
+      &:nth-child(3) {
+        h2 {
+          padding: 16px 24px 18px 24px;
+        }
       }
     }
 

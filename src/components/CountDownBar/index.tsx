@@ -1,18 +1,36 @@
 import React, { useEffect, useState } from "react";
 import "./index.scss";
 
-export function CountDownBar() {
+export function CountDownBar({
+  activeTime,
+  isRunning,
+  activeBtn
+}: {
+  activeTime: number;
+  isRunning: boolean;
+  activeBtn: any;
+}) {
   const [time, setTime] = useState(283);
 
-//   const countDown = () => {
-//     setTime(time - 3);
-//   };
+  const decreeingTime = (time: number, activeTime: number) => {
+    let speedOfDecreeing = time / activeTime;
+    setTime(time - speedOfDecreeing);
+  };
 
-//   useEffect(() => {
-//     const interval = setInterval(countDown, 1000);
-//     console.log(time);
-//     return () => clearInterval(interval);
-//   }, [time]);
+  useEffect(() => {
+    if (activeTime > 0 && time > 0 && isRunning) {
+      const interval = setInterval(() => decreeingTime(time, activeTime), 1000);
+      return () => clearInterval(interval);
+    }
+    if (time <= 0) {
+      setTime(283);
+    }
+  }, [activeTime, time]);
+
+  useEffect(() => {
+    setTime(283);
+    console.log(activeTime);
+  }, [activeBtn]);
 
   return (
     <div className='base-timer'>

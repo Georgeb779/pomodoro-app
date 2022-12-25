@@ -21,7 +21,7 @@ function App() {
 
   const [pomodoroTimes, setPomodoroTimes] = useState({
     pomodoro: 25,
-    shortBreak: 5,
+    shortBreak: 2,
     longBreak: 15
   });
 
@@ -76,7 +76,17 @@ function App() {
       </div>
 
       <div className={`timer_container ${useColor.activeColor}`}>
-        <ScreenTime />
+        <ScreenTime
+          pomodoroTimes={
+            activeBtn.btn1
+              ? pomodoroTimes.pomodoro
+              : activeBtn.btn2
+              ? pomodoroTimes.shortBreak
+              : pomodoroTimes.longBreak
+          }
+
+          activeBtn={activeBtn}
+        />
       </div>
 
       <Modal

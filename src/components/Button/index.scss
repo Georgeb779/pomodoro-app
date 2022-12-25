@@ -4,7 +4,7 @@ $block: "btn";
   @apply flex justify-center;
 
   &--primary {
-    @apply w-[140px] h-[53px] text-white  opacity-100 items-center rounded-3xl relative top-[55px] left-[90px] font-bold;
+    @apply w-[140px] h-[53px] text-white  opacity-100 items-center rounded-3xl relative top-[18px] left-[90px] font-bold;
 
     &.primary-color {
       @apply bg-custom-red;

@@ -20,6 +20,7 @@ $block: "screen-time";
       letter-spacing: -5px;
     }
     &--btn {
+      @apply z-10;
       > button {
         @apply text-sm text-secondary tracking-[15px] leading-[20px] font-bold;
         text-indent: 15px;
