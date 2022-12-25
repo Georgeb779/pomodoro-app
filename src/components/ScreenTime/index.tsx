@@ -1,14 +1,9 @@
 import { CountDownBar } from "@/components/CountDownBar";
+import { ScreenTimeProps } from "@interfaces";
 import React, { useEffect, useState } from "react";
 import "./index.scss";
 
-export function ScreenTime({
-  pomodoroTimes,
-  activeBtn
-}: {
-  pomodoroTimes: any;
-  activeBtn: any;
-}) {
+export function ScreenTime({ pomodoroTimes, activeBtn }: ScreenTimeProps) {
   const convertTimeToSeconds = (time: number) => {
     return time * 60;
   };
@@ -55,7 +50,11 @@ export function ScreenTime({
     <div className='screen-time__container'>
       <div className='screen-time-value__container'>
         <div className='screen-time-timer__container'>
-          <CountDownBar activeTime={activeTime} isRunning={isRunning} activeBtn={activeBtn} />
+          <CountDownBar
+            activeTime={activeTime}
+            isRunning={isRunning}
+            activeBtn={activeBtn}
+          />
           <div className='screen-time-timer__container--value'>
             {timeConverter(activeTime)}
           </div>

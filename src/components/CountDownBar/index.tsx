@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { CountDownProps } from "@interfaces";
 import "./index.scss";
 
 export function CountDownBar({
   activeTime,
   isRunning,
   activeBtn
-}: {
-  activeTime: number;
-  isRunning: boolean;
-  activeBtn: any;
-}) {
+}: CountDownProps) {
   const [time, setTime] = useState(283);
 
   const decreeingTime = (time: number, activeTime: number) => {
