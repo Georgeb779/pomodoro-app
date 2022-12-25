@@ -1,13 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { GearIcon, Close, CheckMark } from "@/assets/icons";
-import { Button, ColorItem, FontItem } from "@/components/";
-import "./index.scss";
+import { Button, ColorItem, FontItem, PomodoroTimeInput } from "@/components/";
 import { ModalProps } from "@/interfaces";
+import {
+  updateFontAndColor,
+  updatePomodoroTimes,
+  resetState,
+  saveDataInLocalStorage
+} from "@/utils";
+import "./index.scss";
 
 export function Modal({
   useFont,
+  activeBtn,
   useColor,
   setUseFont,
+  pomodoroTimes,
   setPomodoroTimes,
   setUseColor
 }: ModalProps) {
@@ -17,21 +25,20 @@ export function Modal({
     <div className='modal__container'>
       <div
         className={`modal-item__container ${modalActive ? "" : "disable"}`}
-        onClick={(e) => {
-          setModalActive(!modalActive);
-          // make one eventually
-          setUseFont({
-            activeFont: useFont.activeFont,
-            newFont: ""
-          });
-          setUseColor({
-            activeColor: useColor.activeColor,
-            newColor: ""
-          });
+        onClick={() => {
+          resetState(
+            setModalActive,
+            setUseFont,
+            setUseColor,
+            setPomodoroTimes,
+            useFont,
+            useColor,
+            pomodoroTimes
+          );
         }}
       >
         <div
-          className={`modal-item__container--content` }
+          className={`modal-item__container--content`}
           onClick={(e) => {
             e.preventDefault();
             e.stopPropagation();
@@ -43,38 +50,54 @@ export function Modal({
             <Button
               icon={<Close />}
               onClick={() => {
-                setModalActive(!modalActive);
-                // make one eventually
-                setUseFont({
-                  activeFont: useFont.activeFont,
-                  newFont: ""
-                });
-                setUseColor({
-                  activeColor: useColor.activeColor,
-                  newColor: ""
-                });
+                resetState(
+                  setModalActive,
+                  setUseFont,
+                  setUseColor,
+                  setPomodoroTimes,
+                  useFont,
+                  useColor,
+                  pomodoroTimes
+                );
               }}
             />
           </header>
           <div className='modal-item__container--content--body'>
             <div className='modal-item__container--content--section'>
               <h2>Time (minutes)</h2>
-              <span>
-                <label htmlFor='pomodoro'>Pomodoro</label>{" "}
-                <input type='number' name='pomodoro' id='pomodoro' />
-              </span>
-              <span>
-                <label htmlFor='short break'>short break</label>{" "}
-                <input type='number' name='short break' id='short break' />
-              </span>
-              <span>
-                <label htmlFor='long break'>long break</label>{" "}
-                <input type='number' name='long break' id='long break' />
-              </span>
+              <PomodoroTimeInput
+                label='Pomodoro'
+                name='pomodoro'
+                id='pomodoro'
+                value={pomodoroTimes.newPomodoro || pomodoroTimes.pomodoro}
+                setValue={(value) =>
+                  setPomodoroTimes({ ...pomodoroTimes, newPomodoro: value })
+                }
+              />
+              <PomodoroTimeInput
+                label='short break'
+                name='short break'
+                id='short break'
+                value={pomodoroTimes.newShortBreak || pomodoroTimes.shortBreak}
+                setValue={(value) =>
+                  setPomodoroTimes({ ...pomodoroTimes, newShortBreak: value })
+                }
+              />
+              <PomodoroTimeInput
+                label='long break'
+                name='long break'
+                id='long break'
+                value={pomodoroTimes.newLongBreak || pomodoroTimes.longBreak}
+                setValue={(value) =>
+                  setPomodoroTimes({
+                    ...pomodoroTimes,
+                    newLongBreak: value
+                  })
+                }
+              />
             </div>
             <div className='modal-item__container--content--section'>
               <h2>Font</h2>
-
               <div className='font__container'>
                 <FontItem
                   useFont={useFont}
@@ -88,7 +111,11 @@ export function Modal({
               <div className='color__container'>
                 <ColorItem
                   useColor={useColor}
-                  colors={["primary-color", "secondary-color", "tertiary-color"]}
+                  colors={[
+                    "primary-color",
+                    "secondary-color",
+                    "tertiary-color"
+                  ]}
                   icon={<CheckMark />}
                   setUseColor={setUseColor}
                 />
@@ -99,24 +126,14 @@ export function Modal({
               type={`primary ${useColor.activeColor}`}
               onClick={() => {
                 setModalActive(!modalActive);
-                if (
-                  useColor.newColor !== useColor.activeColor &&
-                  useColor.newColor !== ""
-                ) {
-                  setUseColor({
-                    activeColor: useColor.newColor,
-                    newColor: ""
-                  });
-                }
-                if (
-                  useFont.newFont !== useFont.activeFont &&
-                  useFont.newFont !== ""
-                ) {
-                  setUseFont({
-                    activeFont: useFont.newFont,
-                    newFont: ""
-                  });
-                }
+                updateFontAndColor(useColor, setUseColor, useFont, setUseFont);
+                updatePomodoroTimes(pomodoroTimes, setPomodoroTimes);
+
+                saveDataInLocalStorage(
+                  useFont,
+                  useColor,
+                  pomodoroTimes
+                );
               }}
             />
           </div>
