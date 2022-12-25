@@ -44,7 +44,7 @@ export function ScreenTime({ pomodoroTimes, activeBtn }: ScreenTimeProps) {
   useEffect(() => {
     setActiveTime(convertTimeToSeconds(pomodoroTimes));
     setIsRunning(false);
-  }, [activeBtn]);
+  }, [activeBtn, pomodoroTimes]);
 
   return (
     <div className='screen-time__container'>
