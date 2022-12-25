@@ -26,7 +26,6 @@ export function CountDownBar({
 
   useEffect(() => {
     setTime(283);
-    console.log(activeTime);
   }, [activeBtn]);
 
   return (
