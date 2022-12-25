@@ -1,7 +1,6 @@
 .base-timer {
   position: absolute;
-  height: 265px;
-  width: 265px;
+  @apply w-[265px] h-[265px] md:w-[364px] md:h-[364px];
 }
 .base-timer svg {
   transform: rotate(-90deg);

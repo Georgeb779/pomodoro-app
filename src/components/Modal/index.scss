@@ -10,8 +10,19 @@ $block: "modal";
     transform: scale(1);
     transition: all 0.3s ease-in-out;
 
+    @keyframes fadeIn {
+      0% {
+        background: none;
+      }
+
+      100% {
+        background: rgba(10, 12, 28, 0.5);
+      }
+    }
+    animation: fadeIn 1.9s forwards;
+
     &--content {
-      @apply rounded-xl bg-white text-center align-middle h-[575px] w-[327px];
+      @apply rounded-xl bg-white text-center align-middle h-[575px] w-[327px]  md:h-[464px]  md:w-[540px];
       transition: all 0.3s ease-in-out;
 
       header {
@@ -40,7 +51,7 @@ $block: "modal";
         }
 
         input {
-          @apply mr-[8px] cursor-pointer w-[140px] h-[40px] text-left bg-custom-gray pl-4 text-primary text-sm font-bold;
+          @apply mr-[8px] cursor-pointer w-[140px] h-[40px] text-left  pl-4 text-primary text-sm font-bold;
           border-radius: 10px;
         }
       }
@@ -53,19 +64,38 @@ $block: "modal";
       }
     }
     &--content--section {
-      @apply ml-6 mr-6;
+      @apply ml-6 mr-6 md:ml-9 md:mr-9;
 
       &:first-child {
         border-bottom: 1px solid #e3e1e1;
         padding-bottom: 24px;
+
+        div {
+          @apply md:flex md:justify-start;
+
+          span {
+            @apply md:flex-col;
+
+            label {
+              @apply md:self-start md:mb-[10px];
+            }
+          }
+        }
       }
       &:nth-child(2) {
         border-bottom: 1px solid #e3e1e1;
         padding-bottom: 24px;
+        @apply md:flex md:pl-[0] md:justify-between md:pb-[0];
+
+        h2 {
+          @apply md:pl-[0];
+        }
       }
       &:nth-child(3) {
+        @apply md:flex md:pl-[0]  md:pb-[0] md:justify-between;
         h2 {
           padding: 16px 24px 18px 24px;
+          @apply md:pl-[0] md:pb-[24px] md:pt-[24px];
         }
       }
     }
@@ -73,7 +103,16 @@ $block: "modal";
     &.disable {
       @apply invisible opacity-0 bg-transparent;
       transform: scale(0);
-      background: none;
+
+      animation: fadeOut 0.5s forwards;
+      @keyframes fadeOut {
+        0% {
+          background: none;
+        }
+        100% {
+          background: none;
+        }
+      }
     }
   }
 }

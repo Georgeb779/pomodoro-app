@@ -2,27 +2,27 @@ $block: "screen-time";
 
 .#{$block} {
   &__container {
-    @apply flex flex-col justify-center items-center rounded-full w-[300px] h-[300px] mt-[45px];
+    @apply flex flex-col justify-center items-center rounded-full w-[300px] h-[300px] md:w-[410px] md:h-[410px] mt-[45px];
     background: linear-gradient(315deg, #2e325a 0%, #0e112a 100%);
     box-shadow: -50px -50px 100px #272c5a, 50px 50px 100px #121530;
     cursor: default;
   }
 
   &-value__container {
-    @apply flex flex-col justify-center items-center w-[266px] h-[266px] rounded-full;
+    @apply flex flex-col justify-center items-center w-[266px] h-[266px] md:w-[366px] md:h-[366px] rounded-full;
     background: #161932;
   }
   &-timer__container {
-    @apply flex flex-col justify-center items-center  w-[248px] h-[248px] rounded-full;
+    @apply flex flex-col justify-center items-center  w-[248px] h-[248px]  md:w-[339px] md:h-[339px] rounded-full;
 
     &--value {
-      @apply flex flex-col justify-center items-center font-bold text-[80px] text-secondary;
+      @apply flex flex-col justify-center items-center font-bold text-[80px] md:text-[100px] md:h-[102px] md:mb-[19px] text-secondary;
       letter-spacing: -5px;
     }
     &--btn {
       @apply z-10;
       > button {
-        @apply text-sm text-secondary tracking-[15px] leading-[20px] font-bold;
+        @apply text-sm md:text-base text-secondary tracking-[15px] leading-[20px] font-bold;
         text-indent: 15px;
       }
     }

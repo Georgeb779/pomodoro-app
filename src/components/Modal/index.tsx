@@ -65,36 +65,40 @@ export function Modal({
           <div className='modal-item__container--content--body'>
             <div className='modal-item__container--content--section'>
               <h2>Time (minutes)</h2>
-              <PomodoroTimeInput
-                label='Pomodoro'
-                name='pomodoro'
-                id='pomodoro'
-                value={pomodoroTimes.newPomodoro || pomodoroTimes.pomodoro}
-                setValue={(value) =>
-                  setPomodoroTimes({ ...pomodoroTimes, newPomodoro: value })
-                }
-              />
-              <PomodoroTimeInput
-                label='short break'
-                name='short break'
-                id='short break'
-                value={pomodoroTimes.newShortBreak || pomodoroTimes.shortBreak}
-                setValue={(value) =>
-                  setPomodoroTimes({ ...pomodoroTimes, newShortBreak: value })
-                }
-              />
-              <PomodoroTimeInput
-                label='long break'
-                name='long break'
-                id='long break'
-                value={pomodoroTimes.newLongBreak || pomodoroTimes.longBreak}
-                setValue={(value) =>
-                  setPomodoroTimes({
-                    ...pomodoroTimes,
-                    newLongBreak: value
-                  })
-                }
-              />
+              <div>
+                <PomodoroTimeInput
+                  label='Pomodoro'
+                  name='pomodoro'
+                  id='pomodoro'
+                  value={pomodoroTimes.newPomodoro || pomodoroTimes.pomodoro}
+                  setValue={(value) =>
+                    setPomodoroTimes({ ...pomodoroTimes, newPomodoro: value })
+                  }
+                />
+                <PomodoroTimeInput
+                  label='short break'
+                  name='short break'
+                  id='short break'
+                  value={
+                    pomodoroTimes.newShortBreak || pomodoroTimes.shortBreak
+                  }
+                  setValue={(value) =>
+                    setPomodoroTimes({ ...pomodoroTimes, newShortBreak: value })
+                  }
+                />
+                <PomodoroTimeInput
+                  label='long break'
+                  name='long break'
+                  id='long break'
+                  value={pomodoroTimes.newLongBreak || pomodoroTimes.longBreak}
+                  setValue={(value) =>
+                    setPomodoroTimes({
+                      ...pomodoroTimes,
+                      newLongBreak: value
+                    })
+                  }
+                />
+              </div>
             </div>
             <div className='modal-item__container--content--section'>
               <h2>Font</h2>
@@ -129,11 +133,7 @@ export function Modal({
                 updateFontAndColor(useColor, setUseColor, useFont, setUseFont);
                 updatePomodoroTimes(pomodoroTimes, setPomodoroTimes);
 
-                saveDataInLocalStorage(
-                  useFont,
-                  useColor,
-                  pomodoroTimes
-                );
+                saveDataInLocalStorage(useFont, useColor, pomodoroTimes);
               }}
             />
           </div>

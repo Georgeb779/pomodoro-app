@@ -22,7 +22,7 @@ a {
   @apply bg-body h-screen text-white flex flex-col justify-center items-center;
 
   > h1 {
-    @apply text-3xl font-bold mb-14;
+    @apply text-3xl font-bold mb-14 md:text-4xl;
   }
 
   &.primary-font {
@@ -38,11 +38,11 @@ a {
 }
 
 .#{$block_2} {
-  @apply flex justify-center items-center rounded-full bg-primary w-[327px] h-[63px]  gap-2 p-2;
+  @apply flex justify-center items-center rounded-full bg-primary w-[327px] h-[63px]  gap-2 p-2 md:w-[373px];
   z-index: 1;
 
   &::before {
-    @apply rounded-full absolute   w-[110px] h-[48px];
+    @apply rounded-full absolute  md:w-[120px] w-[110px] h-[48px];
     content: "";
     transition: all 0.3s ease-in-out;
   }
@@ -65,19 +65,17 @@ a {
 
   &.primary-1 {
     &::before {
-      @apply w-[98px];
-      transform: translate(-110%, 0px);
+      @apply w-[98px] md:w-[120px] translate-y-[0] translate-x-[-110%] md:translate-x-[-100%];
     }
   }
   &.primary-2 {
     &::before {
-      transform: translate(0%, 0px);
+      @apply translate-y-[0] translate-x-[0];
     }
   }
   &.primary-3 {
     &::before {
-      @apply w-[98px];
-      transform: translate(110%, 0px);
+      @apply w-[98px] md:w-[120px]  translate-y-[0] translate-x-[110%] md:translate-x-[100%];
     }
   }
 }

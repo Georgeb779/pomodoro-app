@@ -4,7 +4,7 @@ $block: "btn";
   @apply flex justify-center;
 
   &--primary {
-    @apply w-[140px] h-[53px] text-white  opacity-100 items-center rounded-3xl relative top-[18px] left-[90px] font-bold;
+    @apply w-[140px] h-[53px] text-white  opacity-100 items-center rounded-3xl relative top-[18px] left-[90px] md:top-[63px] md:left-[200px] font-bold;
 
     &.primary-color {
       @apply bg-custom-red;
@@ -18,10 +18,10 @@ $block: "btn";
   }
 
   &--disabled {
-    @apply w-[120px] h-[48px] text-secondary opacity-[0.4] items-center text-xs;
+    @apply w-[120px] h-[48px] text-secondary opacity-[0.4] items-center text-xs md:text-sm;
   }
   &--active {
-    @apply text-primary opacity-100 w-[120px]  rounded-full font-bold text-xs;
+    @apply text-primary opacity-100 w-[120px]  rounded-full font-bold text-xs md:text-sm;
     transition: all 0.3s ease;
     z-index: 1;
   }
