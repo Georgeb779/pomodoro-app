@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, ScreenTime, Modal } from "@/components/";
 import "./index.scss";
+import { animateActiveBtn, getDataFromLocalStorage } from "@/utils";
 
 function App() {
   const [activeBtn, setActiveBtn] = useState({
@@ -21,18 +22,16 @@ function App() {
 
   const [pomodoroTimes, setPomodoroTimes] = useState({
     pomodoro: 25,
-    shortBreak: 2,
-    longBreak: 15
+    shortBreak: 5,
+    longBreak: 15,
+    newPomodoro: 0,
+    newShortBreak: 0,
+    newLongBreak: 0
   });
 
-  const animateActiveBtn = (btn: string) => {
-    setActiveBtn({
-      btn1: false,
-      btn2: false,
-      btn3: false,
-      [btn]: true
-    });
-  };
+  useEffect(() => {
+    getDataFromLocalStorage({ setUseFont, setUseColor, setPomodoroTimes });
+  }, []);
 
   return (
     <div
@@ -53,7 +52,7 @@ function App() {
           color='red'
           type={activeBtn.btn1 ? "active" : "disabled"}
           onClick={() => {
-            animateActiveBtn("btn1");
+            animateActiveBtn("btn1", setActiveBtn);
           }}
         />
         <Button
@@ -61,7 +60,7 @@ function App() {
           color='green'
           type={activeBtn.btn2 ? "active" : "disabled"}
           onClick={() => {
-            animateActiveBtn("btn2");
+            animateActiveBtn("btn2", setActiveBtn);
           }}
         />
 
@@ -70,7 +69,7 @@ function App() {
           color='blue'
           type={activeBtn.btn3 ? "active" : "disabled"}
           onClick={() => {
-            animateActiveBtn("btn3");
+            animateActiveBtn("btn3", setActiveBtn);
           }}
         />
       </div>
@@ -84,16 +83,17 @@ function App() {
               ? pomodoroTimes.shortBreak
               : pomodoroTimes.longBreak
           }
-
           activeBtn={activeBtn}
         />
       </div>
 
       <Modal
+        activeBtn={activeBtn}
         useColor={useColor}
         useFont={useFont}
         setUseFont={setUseFont}
         setUseColor={setUseColor}
+        pomodoroTimes={pomodoroTimes}
         setPomodoroTimes={setPomodoroTimes}
       />
     </div>
