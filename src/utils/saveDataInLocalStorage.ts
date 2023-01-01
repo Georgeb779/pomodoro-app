@@ -5,10 +5,6 @@ export const saveDataInLocalStorage = (
   useColor: { activeColor: string; newColor: string },
   pomodoroTimes: PomodoroTimesProps
 ) => {
-  console.log(
-    useFont.newFont.length > 0 ? useFont.newFont : useFont.activeFont
-  );
-  console.log(useColor.newColor);
 
   localStorage.setItem(
     "useFont",
