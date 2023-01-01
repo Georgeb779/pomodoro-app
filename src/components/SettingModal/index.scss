@@ -26,7 +26,7 @@ $block: "modal";
       transition: all 0.3s ease-in-out;
 
       header {
-        @apply flex justify-between text-xl font-bold text-primary p-[24px];
+        @apply flex justify-between text-xl font-bold text-primary p-[24px] items-center;
         border-bottom: 1px solid #e3e1e1;
 
         .modal-item__container--content--close {

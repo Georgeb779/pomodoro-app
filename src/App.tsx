@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { Button, ScreenTime, Modal } from "@/components/";
+import { Button, ScreenTime, SettingModal } from "@/components/";
 import "./index.scss";
 import { animateActiveBtn, getDataFromLocalStorage } from "@/utils";
 
 function App() {
+  
   const [activeBtn, setActiveBtn] = useState({
     btn1: true,
     btn2: false,
@@ -87,7 +88,7 @@ function App() {
         />
       </div>
 
-      <Modal
+      <SettingModal
         activeBtn={activeBtn}
         useColor={useColor}
         useFont={useFont}
