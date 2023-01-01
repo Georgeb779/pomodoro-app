@@ -26,7 +26,7 @@ export function PomodoroTimeInput({
         onChange={(e) => {
           setValue(Number(e.target.value));
         }}
-        min={1}
+        min={0}
         max={60}
         step={1}
       />
