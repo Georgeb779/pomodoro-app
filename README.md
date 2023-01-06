@@ -48,7 +48,7 @@ Users should be able to:
 
 ### Screenshot
 
-![Mobile view of solution](./public/screenshots/mobile.png.png)
+![Mobile view of solution](./public/screenshots/mobile.png)
 
 ![Mobile active view of solution](./public/screenshots/mobile-active.png)
 
